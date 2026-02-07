@@ -4,7 +4,7 @@ services:
     container_name: laravel_app
     working_dir: /var/www
     volumes:
-      - ./src:/var/www
+      - ./:/var/www
     restart: always
 
   nginx:
@@ -13,7 +13,7 @@ services:
     ports:
       - "8088:80"
     volumes:
-      - ./src:/var/www
+      - ./:/var/www
       - ./nginx/conf.d:/etc/nginx/conf.d
     depends_on:
       - app
